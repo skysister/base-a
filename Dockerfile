@@ -10,16 +10,16 @@ RUN apt-get update -y && \
       locales \
       unzip && \
     apt-get install -y \
-      php8.3-fpm \
-      php8.3-curl \
-      php8.3-gd \
-      php8.3-imagick \
-      php8.3-mbstring \
-      php8.3-mysql \
-      php8.3-soap \
-      php8.3-sqlite3 \
-      php8.3-xml \
-      php8.3-zip \
+      php8.4-fpm \
+      php8.4-curl \
+      php8.4-gd \
+      php8.4-imagick \
+      php8.4-mbstring \
+      php8.4-mysql \
+      php8.4-soap \
+      php8.4-sqlite3 \
+      php8.4-xml \
+      php8.4-zip \
       sqlite3 && \
     apt-get clean all
 
@@ -41,7 +41,8 @@ RUN useradd -s /bin/false nginx
 
 RUN mkdir /usr/local/bin/config && \
     mkdir /usr/local/bin/init && \
-    mkdir /run/php && chown root:nginx /run/php && \
+    # mkdir /run/php && chown root:nginx /run/php && \
+    chown root:nginx /run/php && \
     mkdir /var/log/php && chmod -R 755 /var/log/php && chown -R root:nginx /var/log/php && \
     mkdir -p /var/www/cache && chmod 755 /var/www/cache && \
     chmod -R 775 /var/lib/php && \
